@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Campus Stores · ShiftFlow</title>
+    <meta
+      name="description"
+      content="Work a shift at a fictional campus equipment desk in this interactive product engineering exercise."
+    />
+    <!-- Space Grotesk & Inter typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <script defer src="./app.js"></script>
+  </head>
+  <body>
+    <!-- Canvas for subtle futuristic animated particle background -->
+    <canvas id="ambient-particles" class="particles-bg" aria-hidden="true"></canvas>
+
+    <!-- SVG Icon Sprite with modern outline paths -->
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="0"
+      height="0"
+      aria-hidden="true"
+      class="icon-library"
+    >
+      <symbol id="icon-layout-dashboard" viewBox="0 0 24 24">
+        <rect width="7" height="7" x="3" y="3" rx="1.5" />
+        <rect width="7" height="7" x="14" y="3" rx="1.5" />
+        <rect width="7" height="7" x="14" y="14" rx="1.5" />
+        <rect width="7" height="7" x="3" y="14" rx="1.5" />
+      </symbol>
+      <symbol id="icon-package" viewBox="0 0 24 24">
+        <path
+          d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"
+        />
+        <path d="M12 22V12" />
+        <polyline points="3.29 7 12 12 20.71 7" />
+        <path d="m7.5 4.27 9 5.15" />
+      </symbol>
+      <symbol id="icon-calendar" viewBox="0 0 24 24">
+        <rect width="18" height="18" x="3" y="4" rx="2" ry="2" />
+        <line x1="16" x2="16" y1="2" y2="6" />
+        <line x1="8" x2="8" y1="2" y2="6" />
+        <line x1="3" x2="21" y1="10" y2="10" />
+      </symbol>
+      <symbol id="icon-clipboard-list" viewBox="0 0 24 24">
+        <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+        <path
+          d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+        />
+        <path d="M12 11h4" />
+        <path d="M12 16h4" />
+        <path d="M8 11h.01" />
+        <path d="M8 16h.01" />
+      </symbol>
+      <symbol id="icon-book-open" viewBox="0 0 24 24">
+        <path d="M12 7v14" />
+        <path
+          d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"
+        />
+      </symbol>
+      <symbol id="icon-messages-square" viewBox="0 0 24 24">
+        <path
+          d="M16 10a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 14.286V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"
+        />
+        <path
+          d="M20 9a2 2 0 0 1 2 2v10.286a.71.71 0 0 1-1.212.502l-2.202-2.202A2 2 0 0 0 17.172 19H10a2 2 0 0 1-2-2v-1"
+        />
+      </symbol>
+      <symbol id="icon-arrow-right-circle" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="10" />
+        <path d="M8 12h8" />
+        <path d="m12 16 4-4-4-4" />
+      </symbol>
+      <symbol id="icon-rotate-ccw" viewBox="0 0 24 24">
+        <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+        <path d="M3 3v5h5" />
+      </symbol>
+      <symbol id="icon-activity" viewBox="0 0 24 24">
+        <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+      </symbol>
+      <symbol id="icon-sparkles" viewBox="0 0 24 24">
+        <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
+      </symbol>
+      <symbol id="icon-check-circle" viewBox="0 0 24 24">
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+        <path d="m9 11 3 3L22 4" />
+      </symbol>
+      <symbol id="icon-clock" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="10" />
+        <polyline points="12 6 12 12 16 14" />
+      </symbol>
+      <symbol id="icon-alert-triangle" viewBox="0 0 24 24">
+        <path
+          d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"
+        />
+        <path d="M12 9v4" />
+        <path d="M12 17h.01" />
+      </symbol>
+      <symbol id="icon-search" viewBox="0 0 24 24">
+        <circle cx="11" cy="11" r="8" />
+        <path d="m21 21-4.3-4.3" />
+      </symbol>
+      <symbol id="icon-x" viewBox="0 0 24 24">
+        <path d="M18 6 6 18" />
+        <path d="m6 6 12 12" />
+      </symbol>
+      <symbol id="icon-refresh-cw" viewBox="0 0 24 24">
+        <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
+        <path d="M21 3v5h-5" />
+        <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
+        <path d="M8 16H3v5" />
+      </symbol>
+      <symbol id="icon-user" viewBox="0 0 24 24">
+        <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+        <circle cx="12" cy="7" r="4" />
+      </symbol>
+      <symbol id="icon-tag" viewBox="0 0 24 24">
+        <path
+          d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"
+        />
+        <circle cx="7.5" cy="7.5" r=".5" fill="currentColor" />
+      </symbol>
+      <symbol id="icon-package-open" viewBox="0 0 24 24">
+        <path d="M12 22v-9" />
+        <path
+          d="M15.17 2.21a1.67 1.67 0 0 1 1.63 0L21 4.57a1.93 1.93 0 0 1 0 3.36L8.82 14.79a1.655 1.655 0 0 1-1.64 0L3 12.43a1.93 1.93 0 0 1 0-3.36z"
+        />
+        <path
+          d="M20 13v3.87a2.06 2.06 0 0 1-1.11 1.83l-6 3.08a1.93 1.93 0 0 1-1.78 0l-6-3.08A2.06 2.06 0 0 1 4 16.87V13"
+        />
+        <path
+          d="M21 12.43a1.93 1.93 0 0 0 0-3.36L8.83 2.2a1.64 1.64 0 0 0-1.63 0L3 4.57a1.93 1.93 0 0 0 0 3.36l12.18 6.86a1.636 1.636 0 0 0 1.63 0z"
+        />
+      </symbol>
+    </svg>
+
+    <main class="app-viewport">
+      <div id="campus-stores">
+        <!-- Candidate Brief — preserved exactly as required -->
+        <div class="examstrip">
+          <div class="examstrip-badge">
+            <span class="pulse-dot"></span>
+            <span>Product Engineer Practical</span>
+          </div>
+          <details>
+            <summary>Candidate brief</summary>
+            <div class="briefcopy">
+              <h2>Would you keep this product?</h2>
+              <p>
+                Work a shift at the campus media desk. Get the Film Society's
+                kit out for its screening, handle the return, and leave the next
+                shift enough information to finish the job. Use the time control
+                to move the story forward.
+              </p>
+              <p>
+                Show one moment the product handles well and one moment you
+                would change. Use a specific action or decision from your shift
+                as evidence for each.
+              </p>
+              <p>
+                Sketch or prototype your change. Walk us through the same job
+                using it, explain what you would keep, and name one observation
+                at a real counter that would tell you whether it helped.
+              </p>
+              <p>
+                Use any tools you like, including AI assistants, web search,
+                and design or coding tools.
+              </p>
+            </div>
+          </details>
+        </div>
+
+        <!-- Top Header / Masthead with Futuristic Glass & Glow -->
+        <header class="mast">
+          <div class="brandblock">
+            <div class="brandmark" aria-hidden="true">
+              <svg aria-hidden="true" class="store-icon">
+                <use href="#icon-package-open"></use>
+              </svg>
+              <div class="brandmark-glow"></div>
+            </div>
+            <div class="brand-text">
+              <div class="brand-title">
+                <h1>CAMPUS STORES</h1>
+                <span class="brand-pill">SHIFTFLOW</span>
+              </div>
+              <div class="brand-subtitle">Media Equipment &amp; Operations Desk</div>
+            </div>
+          </div>
+          <div class="mast-right">
+            <div class="live-status-pill">
+              <span class="live-dot"></span>
+              <span>LIVE SYSTEM</span>
+            </div>
+            <div class="clock">
+              <small>Desk Time</small>
+              <strong data-clock></strong>
+            </div>
+          </div>
+        </header>
+
+        <!-- Ambient Shift Control Banner -->
+        <aside class="shift">
+          <div class="shift-info">
+            <div class="shift-badge-row">
+              <span class="shift-tag">Active Operational Context</span>
+              <b data-shift-title></b>
+            </div>
+            <p data-shift></p>
+          </div>
+          <button type="button" data-action="advance" class="btn-advance">
+            <span class="btn-text"></span>
+            <svg class="store-icon" aria-hidden="true"><use href="#icon-arrow-right-circle"></use></svg>
+          </button>
+        </aside>
+
+        <!-- Main Shell: Modern Sidebar + Main Stage -->
+        <div class="shell">
+          <aside class="sidebar" aria-label="Main Navigation">
+            <div class="sidebar-label">OPERATION HUB</div>
+            <nav aria-label="Store records" data-nav></nav>
+            <div class="sidebar-footer">
+              <div class="operator-card">
+                <div class="op-avatar">OP</div>
+                <div class="op-details">
+                  <div class="op-name">Counter Desk</div>
+                  <div class="op-status">Active Shift</div>
+                </div>
+              </div>
+            </div>
+          </aside>
+          
+          <section
+            class="page"
+            data-page
+            aria-label="Selected view"
+          ></section>
+        </div>
+
+        <!-- Modern Statusbar & Reset Control -->
+        <div class="statusbar">
+          <div class="status-left">
+            <span class="status-indicator"></span>
+            <span role="status" aria-live="polite" data-status></span>
+          </div>
+          <div class="status-right" data-restart-wrap>
+            <button type="button" data-action="restart" class="btn-restart">
+              <svg class="store-icon" aria-hidden="true"><use href="#icon-rotate-ccw"></use></svg>
+              <span>Restart sample shift</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Toast container -->
+        <div class="toast-container" id="toast-container" aria-live="polite" aria-atomic="false"></div>
+      </div>
+    </main>
+  </body>
+</html>
