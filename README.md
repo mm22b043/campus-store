@@ -4,11 +4,14 @@
 
 ---
 
-## 🚀 Live Localhost Server
+## 🚀 Live Production & Localhost URLs
 
-The application is currently running live on local host:
-
-👉 **[http://localhost:8000](http://localhost:8000)** (or `http://127.0.0.1:8000`)
+- **Live Vercel Production Deployment**:
+  👉 **[https://campus-stores-main.vercel.app](https://campus-stores-main.vercel.app)**
+- **Localhost Development Server**:
+  👉 **[http://localhost:8000](http://localhost:8000)** (or `http://127.0.0.1:8000`)
+- **Vercel Dashboard & Deployment Logs**:
+  👉 [https://vercel.com/arjuns-team/campus-stores-main](https://vercel.com/arjuns-team/campus-stores-main)
 
 To start or restart the local HTTP server at any time:
 ```sh
